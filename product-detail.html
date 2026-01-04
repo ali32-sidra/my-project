@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pooshaz | Product Detail</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --deep:#c2185b;
+  --dark:#8e0038;
+  --gold:#d4af37;
+  --cream:#fff5f8;
+}
+
+body{
+  margin:0;
+  font-family:'Noto Nastaliq Urdu',serif;
+  background:var(--cream);
+  color:#4a0d2e;
+}
+
+/* ===== HEADER ===== */
+header{
+  background:linear-gradient(90deg,var(--deep),var(--dark));
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:4px solid var(--gold);
+}
+header strong{color:gold}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:18px;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1100px;
+  margin:50px auto;
+  padding:0 20px;
+}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb{
+  font-size:14px;
+  margin-bottom:20px;
+}
+.breadcrumb a{
+  color:var(--deep);
+  text-decoration:none;
+}
+
+/* ===== PRODUCT BOX ===== */
+.product-box{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  background:#fff;
+  padding:40px;
+  border-radius:20px;
+  border:2px solid var(--gold);
+}
+
+/* IMAGE */
+.product-box img{
+  width:100%;
+  border-radius:16px;
+  object-fit:cover;
+}
+
+/* DETAILS */
+.product-details h1{
+  color:var(--dark);
+  margin-top:0;
+}
+.product-details p{
+  line-height:2;
+  margin:20px 0;
+}
+
+/* BUTTONS */
+.action-btn{
+  display:inline-block;
+  padding:12px 30px;
+  border-radius:30px;
+  background:linear-gradient(90deg,var(--deep),var(--dark));
+  color:#fff;
+  text-decoration:none;
+  margin-right:15px;
+  transition:.3s;
+}
+.action-btn:hover{
+  background:linear-gradient(90deg,var(--gold),#b8962e);
+  color:#000;
+}
+
+/* BACK HOME */
+.back-home{
+  display:inline-block;
+  margin-top:30px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .product-box{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <strong>Pooshaz</strong>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#collections">Collections</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> ›
+    <span id="breadcrumbCategory">Product</span>
+  </div>
+
+  <!-- Product Detail -->
+  <div class="product-box">
+    <img id="productImage" src="" alt="Product Image">
+
+    <div class="product-details">
+      <h1 id="productTitle"></h1>
+
+      <p id="productDesc"></p>
+
+      <a id="whatsappBtn" href="#" target="_blank" class="action-btn">
+        WhatsApp Order
+      </a>
+
+      <div class="back-home">
+        <a href="index.html" class="action-btn">← Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== JS LOGIC (SAFE & SIMPLE) ===== -->
+<script>
+const params = new URLSearchParams(window.location.search);
+const item = params.get("item") || "bridal";
+
+const data = {
+  bridal:{
+    title:"Bridal Wear",
+    img:"Pooshaz/bridal_compressed.jpg",
+    desc:"یہ شاہانہ دلہن کا جوڑا خالص ہاتھ کی کڑھائی سے تیار کیا گیا ہے، جس میں نفاست، وقار اور روایتی حسن نمایاں ہے۔ خاص دن کو یادگار بنانے کے لیے بہترین انتخاب۔"
+  },
+  party:{
+    title:"Party Wear",
+    img:"Pooshaz/party_compressed.jpg",
+    desc:"تقریبات کے لیے نفیس اور جدید ڈیزائن، جو ہاتھ کی کڑھائی اور اعلیٰ معیار کے کپڑے کے ساتھ تیار کیا گیا ہے۔"
+  },
+  casual:{
+    title:"Casual Wear",
+    img:"Pooshaz/casual_compressed.jpg",
+    desc:"روزمرہ پہننے کے لیے آرام دہ، سادہ مگر نفیس ہاتھ کی کڑھائی کے ساتھ خوبصورت انتخاب۔"
+  }
+};
+
+const product = data[item];
+
+document.getElementById("productTitle").innerText = product.title;
+document.getElementById("productDesc").innerText = product.desc;
+document.getElementById("productImage").src = product.img;
+document.getElementById("breadcrumbCategory").innerText = product.title;
+
+document.getElementById("whatsappBtn").href =
+  "https://wa.me/92XXXXXXXXXX?text=Assalam%20o%20Alaikum,%20mujhe%20"+
+  encodeURIComponent(product.title)+
+  "%20ke%20baare%20mein%20detail%20chahiye.";
+</script>
+
+</body>
+</html>
