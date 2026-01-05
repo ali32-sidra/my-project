@@ -120,3 +120,71 @@ button:hover,
     font-size: 14px;
   }
 }
+/* =====================
+   GLOBAL HOVER EFFECTS
+===================== */
+
+/* NAV LINKS */
+nav a{
+  transition:all .35s ease;
+}
+nav a:hover{
+  transform:translateY(-2px) scale(1.05);
+}
+
+/* COLLECTION CARD */
+.card{
+  transition:all .45s ease;
+  position:relative;
+}
+.card:hover{
+  transform:translateY(-14px) scale(1.02);
+  box-shadow:0 25px 50px rgba(0,0,0,.35);
+}
+
+/* IMAGE ZOOM */
+.card img{
+  transition:transform .6s ease;
+}
+.card:hover img{
+  transform:scale(1.08);
+}
+
+/* BUTTON HOVER */
+.explore-btn,
+.btn{
+  transition:all .35s ease;
+}
+.explore-btn:hover,
+.btn:hover{
+  letter-spacing:1px;
+  box-shadow:0 0 18px rgba(212,175,55,.6);
+  transform:scale(1.05);
+}
+
+/* CART ICON HOVER */
+.cart-icon{
+  transition:all .35s ease;
+}
+.cart-icon:hover{
+  transform:scale(1.2) rotate(-6deg);
+  color:gold;
+}
+
+/* PRICE HOVER */
+.price{
+  transition:.3s;
+}
+.card:hover .price{
+  color:#c2185b;
+  transform:scale(1.08);
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp{
+  transition:all .4s ease;
+}
+.whatsapp:hover{
+  transform:scale(1.15) rotate(6deg);
+  box-shadow:0 0 25px rgba(37,211,102,.8);
+}

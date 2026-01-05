@@ -23,15 +23,12 @@
   --gold:#d4af37;
   --bg:#fff5f8;
 }
-
 body{
   margin:0;
   font-family:'Playfair Display', serif;
   background:var(--bg);
   color:#3b0a1f;
 }
-
-/* HEADER */
 header{
   background:linear-gradient(90deg,var(--deep),var(--dark));
   padding:26px;
@@ -42,8 +39,6 @@ header h1{
   color:#fff;
   text-shadow:0 0 12px rgba(212,175,55,.7);
 }
-
-/* NAV */
 nav a{
   color:#fff;
   margin:0 14px;
@@ -58,8 +53,6 @@ nav a:hover{
   color:#2b1b00;
   box-shadow:0 0 18px rgba(212,175,55,.7);
 }
-
-/* BACK */
 .back-btn{
   display:inline-flex;
   margin:30px;
@@ -75,24 +68,18 @@ nav a:hover{
   color:#2b1b00;
   transform:translateY(-3px);
 }
-
-/* SECTION */
 .section{
   padding:90px 40px;
   max-width:1100px;
   margin:auto;
   text-align:center;
 }
-
-/* CONTACT GRID */
 .contact-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:34px;
   margin-top:50px;
 }
-
-/* ✨ STYLISH CARD */
 .contact-box{
   background:linear-gradient(180deg,#fff,#fff6e8);
   padding:40px 30px;
@@ -103,39 +90,19 @@ nav a:hover{
   overflow:hidden;
   transition:.4s ease;
 }
-.contact-box::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent,rgba(212,175,55,.25),transparent);
-  opacity:0;
-  transition:.4s;
-}
-.contact-box:hover::before{
-  opacity:1;
-}
 .contact-box:hover{
   transform:translateY(-10px) scale(1.03);
-  box-shadow:
-    0 0 25px rgba(212,175,55,.6),
-    0 26px 45px rgba(0,0,0,.35);
 }
-
-/* ICON */
 .contact-box i{
   font-size:34px;
   color:var(--deep);
   margin-bottom:14px;
 }
-
-/* TITLE */
 .contact-box h3{
   font-size:22px;
   margin:10px 0 16px;
   color:var(--deep);
 }
-
-/* BUTTON */
 .contact-box a{
   display:inline-block;
   padding:12px 34px;
@@ -144,15 +111,11 @@ nav a:hover{
   border-radius:35px;
   text-decoration:none;
   font-size:15px;
-  transition:.35s;
 }
 .contact-box a:hover{
   background:linear-gradient(135deg,var(--gold),#b8962e);
   color:#2b1b00;
-  box-shadow:0 0 20px rgba(212,175,55,.8);
 }
-
-/* FORM */
 form{
   max-width:600px;
   margin:80px auto 0;
@@ -160,7 +123,6 @@ form{
   padding:40px;
   border-radius:26px;
   border:2px solid var(--gold);
-  box-shadow:0 18px 38px rgba(0,0,0,.25);
 }
 form input, form textarea{
   width:100%;
@@ -169,8 +131,6 @@ form input, form textarea{
   border-radius:12px;
   border:1px solid #ccc;
 }
-
-/* SEND BUTTON */
 form button{
   width:100%;
   padding:14px;
@@ -180,13 +140,10 @@ form button{
   border-radius:30px;
   font-size:16px;
   cursor:pointer;
-  transition:.35s;
 }
 form button:hover{
   background:linear-gradient(135deg,var(--gold),#b8962e);
   color:#2b1b00;
-  transform:translateY(-3px) scale(1.04);
-  box-shadow:0 0 22px rgba(212,175,55,.8);
 }
 </style>
 </head>
@@ -206,32 +163,41 @@ form button:hover{
 <a href="index.html" class="back-btn">← Back to Home</a>
 
 <section class="section">
-
 <h2>Get in Touch</h2>
 
 <div class="contact-grid">
 
+  <!-- WhatsApp -->
   <div class="contact-box">
     <i class="fab fa-whatsapp"></i>
     <h3>WhatsApp</h3>
-    <a href="https://wa.me/923065354885">Chat on WhatsApp</a>
+    <a href="https://wa.me/923065354885" target="_blank">
+      Chat on WhatsApp
+    </a>
   </div>
 
+  <!-- Email -->
   <div class="contact-box">
     <i class="fas fa-envelope"></i>
     <h3>Email</h3>
-    <a href="mailto:areeshamalik825@gmail.com">Email Us</a>
+    <a href="mailto:areeshamalik825@gmail.com?subject=Pooshaz%20Website%20Contact" target="_blank">
+      Email Us
+    </a>
   </div>
 
+  <!-- Location -->
   <div class="contact-box">
     <i class="fas fa-map-marker-alt"></i>
     <h3>Location</h3>
-    <a href="https://www.google.com/maps/place/W9F6%2B735,+Shahpur+Ubbha,+Pakistan">View on Map</a>
+    <a href="https://www.google.com/maps/place/W9F6%2B735,+Shahpur+Ubbha,+Pakistan" target="_blank">
+      View on Map
+    </a>
   </div>
 
 </div>
 
-<form action="mailto:areeshamalik825@gmail.com" method="post" enctype="text/plain">
+<!-- SEND MESSAGE → OPENS EMAIL APP -->
+<form action="mailto:areeshamalik825@gmail.com?subject=Pooshaz%20Website%20Message" method="post" enctype="text/plain">
   <input type="text" name="Name" placeholder="Your Name" required>
   <input type="email" name="Email" placeholder="Your Email" required>
   <textarea name="Message" placeholder="Your Message" required></textarea>
@@ -240,7 +206,7 @@ form button:hover{
 
 </section>
 
-<footer>
+<footer style="text-align:center;padding:30px;color:#5a0d24;">
 © 2026 Pooshaz — Luxury Hand Embroidery Fashion House
 </footer>
 

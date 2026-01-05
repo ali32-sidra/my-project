@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>Cart | Pooshaz Luxury Hand Embroidery</title>
+
+<meta name="description" content="View your cart and place order on WhatsApp. Luxury hand embroidered dresses by Pooshaz.">
+<meta name="robots" content="noindex, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+ --deep:#c2185b;
+ --dark:#8e0038;
+ --gold:#d4af37;
+}
+
+body{
+ margin:0;
+ font-family:Arial, sans-serif;
+ background:#fff5f8;
+}
+
+.container{
+ max-width:900px;
+ margin:40px auto;
+ background:#fff;
+ padding:30px;
+ border-radius:22px;
+ box-shadow:0 18px 40px rgba(0,0,0,.25);
+ position:relative;
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn{
+ position:absolute;
+ top:20px;
+ left:20px;
+ padding:8px 18px;
+ border-radius:30px;
+ text-decoration:none;
+ background:linear-gradient(90deg,var(--deep),var(--dark));
+ color:#fff;
+ font-size:14px;
+ transition:.4s;
+}
+.back-btn:hover{
+ background:linear-gradient(135deg,var(--gold),#b8962e);
+ color:#2b1b00;
+ box-shadow:0 0 18px rgba(212,175,55,.8);
+ transform:translateX(-4px);
+}
+
+/* ===== TITLE ===== */
+h1{
+ text-align:center;
+ color:var(--dark);
+ margin-bottom:25px;
+}
+
+/* ===== CART ITEM ===== */
+.item{
+ display:flex;
+ gap:18px;
+ align-items:center;
+ border-bottom:1px solid #eee;
+ padding:16px 0;
+ transition:.3s;
+}
+.item:hover{background:#fff0f6}
+
+.item img{
+ width:90px;
+ height:90px;
+ object-fit:contain;
+ border-radius:12px;
+ background:#fff;
+ transition:.4s;
+}
+.item:hover img{transform:scale(1.08)}
+
+.info{flex:1}
+.info h3{
+ margin:0;
+ font-size:16px;
+ color:var(--dark);
+}
+.price{
+ margin-top:4px;
+ font-weight:bold;
+ color:var(--deep);
+}
+
+/* ===== REMOVE ===== */
+.remove{
+ background:#eee;
+ border:none;
+ padding:6px 12px;
+ border-radius:20px;
+ cursor:pointer;
+ transition:.35s;
+}
+.remove:hover{
+ background:#ff4d6d;
+ color:#fff;
+ transform:scale(1.1);
+ box-shadow:0 0 14px rgba(255,77,109,.8);
+}
+
+/* ===== TOTAL ===== */
+.total{
+ text-align:right;
+ font-size:20px;
+ font-weight:bold;
+ margin-top:20px;
+ color:var(--dark);
+}
+
+/* ===== ACTION BUTTONS ===== */
+.actions{
+ margin-top:25px;
+ display:flex;
+ justify-content:space-between;
+ flex-wrap:wrap;
+ gap:15px;
+}
+
+.btn{
+ padding:12px 28px;
+ border-radius:30px;
+ text-decoration:none;
+ color:#fff;
+ font-weight:bold;
+ transition:.4s;
+ display:inline-block;
+ position:relative;
+ overflow:hidden;
+}
+
+.btn::after{
+ content:"";
+ position:absolute;
+ top:0;
+ left:-100%;
+ width:100%;
+ height:100%;
+ background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);
+ transition:.6s;
+}
+.btn:hover::after{left:100%}
+
+.clear{background:#999}
+.clear:hover{
+ background:#444;
+ transform:scale(1.05);
+ box-shadow:0 0 15px rgba(0,0,0,.6);
+}
+
+.wa{
+ background:linear-gradient(135deg,#25D366,#128C7E);
+}
+.wa:hover{
+ transform:scale(1.1) translateY(-2px);
+ box-shadow:0 0 20px rgba(37,211,102,.9);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+ .container{margin:20px;padding:20px}
+ h1{font-size:22px}
+ .item{flex-direction:column;align-items:flex-start}
+ .item img{width:100%;height:160px}
+ .remove{align-self:flex-end}
+ .actions{flex-direction:column}
+ .btn{width:100%;text-align:center}
+ .total{text-align:left;font-size:18px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="index.html" class="back-btn">← Back</a>
+
+<h1>Your Cart</h1>
+
+<div id="cartItems"></div>
+<div class="total" id="total"></div>
+
+<div class="actions">
+ <a href="#" class="btn clear" onclick="clearCart()">Clear Cart</a>
+ <a id="waCheckout" class="btn wa" target="_blank">Checkout on WhatsApp</a>
+</div>
+
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+const wrap = document.getElementById("cartItems");
+const totalBox = document.getElementById("total");
+
+let total = 0;
+let message = "🛍️ *Pooshaz Order*\\n\\n";
+
+cart.forEach((p,i)=>{
+ total += Number(p.price);
+
+ const imgURL = location.origin + "/" + (p.img || p.image);
+
+ message +=
+  `${i+1}. ${p.name}\\n` +
+  `💰 Rs. ${p.price} PKR\\n` +
+  `🖼️ ${imgURL}\\n\\n`;
+
+ wrap.innerHTML += `
+ <div class="item">
+  <img src="${p.img || p.image}" loading="lazy" decoding="async">
+  <div class="info">
+   <h3>${p.name}</h3>
+   <div class="price">Rs. ${p.price} PKR</div>
+  </div>
+  <button class="remove" onclick="removeItem(${i})">✕</button>
+ </div>
+ `;
+});
+
+message += "------------------\\n";
+message += `💵 *Total: Rs. ${total.toLocaleString()} PKR*\\n\\n`;
+message += "📍 Please confirm availability";
+
+totalBox.innerText = "Total: Rs. " + total.toLocaleString() + " PKR";
+
+document.getElementById("waCheckout").href =
+ "https://wa.me/923065354885?text=" + encodeURIComponent(message);
+
+function removeItem(i){
+ cart.splice(i,1);
+ localStorage.setItem("cart",JSON.stringify(cart));
+ location.reload();
+}
+
+function clearCart(){
+ localStorage.removeItem("cart");
+ location.reload();
+}
+</script>
+
+</body>
+</html>

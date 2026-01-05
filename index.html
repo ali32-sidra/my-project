@@ -1,312 +1,363 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ✅ SEO TITLE -->
-<title>Pooshaz | Luxury Hand Embroidery Dresses in Pakistan</title>
-
-<!-- ✅ SEO META -->
-<meta name="description" content="Pooshaz is a luxury Pakistani fashion brand offering premium hand embroidered dresses. Shop Eid, Winter and Summer collections with Cash on Delivery across Pakistan.">
-<meta name="keywords" content="Pooshaz, hand embroidery dresses Pakistan, luxury embroidered dresses, Eid dresses Pakistan, Pakistani fashion brand">
-<meta name="author" content="Pooshaz">
+<!-- 🔍 SEO META TAGS -->
+<meta name="description" content="Pooshaz is a luxury Pakistani fashion brand offering premium hand embroidered dresses. Shop Eid, Winter, Mid-Winter and Summer collections with Cash on Delivery across Pakistan.">
+<meta name="keywords" content="Pooshaz, luxury hand embroidery Pakistan, Pakistani embroidered dresses, Eid dresses Pakistan, designer wear Pakistan">
+<meta name="author" content="Pooshaz Fashion House">
 <meta name="robots" content="index, follow">
 
-<!-- ✅ SOCIAL PREVIEW (WhatsApp / Facebook) -->
-<meta property="og:title" content="Pooshaz | Luxury Hand Embroidery">
-<meta property="og:description" content="Premium hand embroidered dresses with Cash on Delivery across Pakistan.">
+<!-- 🌐 Open Graph -->
+<meta property="og:title" content="Pooshaz | Luxury Hand Embroidery Dresses in Pakistan">
+<meta property="og:description" content="Premium hand embroidered Pakistani dresses with Cash on Delivery across Pakistan.">
 <meta property="og:image" content="Pooshaz/logo.png">
 <meta property="og:type" content="website">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pooshaz | Luxury Hand Embroidery Dresses in Pakistan</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-<link rel="stylesheet" href="css/style.css">
 
 <style>
 :root{
-  --deep:#c2185b;
-  --dark:#8e0038;
-  --gold:#d4af37;
-  --cream:#fff5f8;
-  --soft:#fde7f0;
+ --deep:#c2185b;
+ --dark:#8e0038;
+ --gold:#d4af37;
+ --soft:#fde7f0;
 }
 
 *{box-sizing:border-box}
 
 body{
-  margin:0;
-  font-family:'Noto Nastaliq Urdu',serif;
-  color:#4a0d2e;
-  background:
-    linear-gradient(rgba(255,245,248,.96),rgba(255,245,248,.96)),
-    url("Pooshaz/lpgaur.png") center/cover fixed no-repeat;
+ margin:0;
+ font-family:'Noto Nastaliq Urdu',serif;
+ background:
+ linear-gradient(rgba(255,245,248,.96),rgba(255,245,248,.96)),
+ url("Pooshaz/lpgaur.png") center/cover fixed no-repeat;
 }
 
-/* ===== NAVBAR ===== */
+/* ===== HEADER ===== */
 header{
-  background:linear-gradient(90deg,var(--deep),var(--dark));
-  padding:15px 30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:4px solid var(--gold);
+ background:linear-gradient(90deg,var(--deep),var(--dark));
+ padding:15px 25px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ border-bottom:4px solid var(--gold);
+ position:sticky;
+ top:0;
+ z-index:1000;
 }
+
 .brand{display:flex;align-items:center;gap:10px}
 .brand img{height:46px}
 
-nav a{
-  color:#fff;
-  text-decoration:none;
-  margin-left:18px;
-  padding:6px 16px;
-  border-radius:20px;
-  transition:.3s;
+/* ===== NAV ===== */
+nav{
+ display:flex;
+ align-items:center;
+ gap:10px;
 }
+
+nav a{
+ color:#fff;
+ text-decoration:none;
+ padding:6px 16px;
+ border-radius:20px;
+ transition:.4s;
+ position:relative;
+}
+
 nav a:hover{
-  background:linear-gradient(135deg,var(--gold),#b8962e);
-  color:#2b1b00;
-  box-shadow:0 0 14px rgba(212,175,55,.6);
+ background:linear-gradient(135deg,var(--gold),#b8962e);
+ color:#2b1b00;
+ box-shadow:0 0 18px rgba(212,175,55,.8);
+ transform:translateY(-2px);
+}
+
+nav a::after{
+ content:"";
+ position:absolute;
+ bottom:-6px;
+ left:50%;
+ width:0;
+ height:2px;
+ background:var(--gold);
+ transition:.4s;
+ transform:translateX(-50%);
+}
+nav a:hover::after{width:60%}
+
+/* ===== CART ===== */
+.cart-icon{
+ position:relative;
+ margin-left:8px;
+ cursor:pointer;
+}
+.cart-icon i{color:#fff;font-size:18px}
+
+.cart-count{
+ position:absolute;
+ top:-6px;
+ right:-6px;
+ background:var(--gold);
+ color:#2b1b00;
+ font-size:12px;
+ padding:3px 7px;
+ border-radius:50%;
+ font-weight:bold;
+}
+
+/* ===== HAMBURGER ===== */
+.hamburger{
+ display:none;
+ font-size:26px;
+ color:#fff;
+ cursor:pointer;
+}
+
+/* ===== MOBILE MENU ===== */
+@media(max-width:900px){
+ nav{
+  position:absolute;
+  top:100%;
+  left:0;
+  width:100%;
+  background:linear-gradient(180deg,var(--deep),var(--dark));
+  flex-direction:column;
+  align-items:center;
+  max-height:0;
+  overflow:hidden;
+  transition:.4s ease;
+ }
+ nav.active{max-height:400px;padding:20px 0}
+ .hamburger{display:block}
 }
 
 /* ===== HERO ===== */
 .hero{
-  min-height:78vh;
-  background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-    url("Pooshaz/SID.jpg") center/cover fixed no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+ min-height:78vh;
+ background:
+ linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+ url("Pooshaz/SID.jpg") center/cover fixed no-repeat;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
 }
 
-.hero-box{
-  padding:45px;
-  max-width:720px;
-}
+.hero-box{padding:45px;max-width:720px}
 
 .hero-box h1{
-  font-family:'Playfair Display',serif;
-  font-size:46px;
-  color:#fff;
-  letter-spacing:1px;
-  text-shadow:
-    0 0 10px rgba(212,175,55,.5),
-    0 0 22px rgba(212,175,55,.4);
-}
-.hero-box p{
-  color:#f8f3f6;
-  font-size:19px;
-}
-.hero-box .center-text{
-  color:var(--gold);
-  font-weight:600;
-  letter-spacing:1px;
+ font-family:'Playfair Display',serif;
+ font-size:46px;
+ color:#fff;
+ text-shadow:0 0 20px rgba(212,175,55,.6);
 }
 
-/* 🔎 Hidden SEO line (no visual effect) */
-.hero-box .seo-hidden{
-  display:none;
-}
+.hero-box p{color:#f8f3f6;font-size:19px}
+.center-text{color:var(--gold);font-weight:600}
 
 /* ===== SECTION ===== */
 .section{
-  padding:80px 30px;
-  text-align:center;
-  background:var(--soft);
+ padding:80px 30px;
+ text-align:center;
+ background:var(--soft);
 }
 
-/* ===== COLLECTION TITLE ===== */
+/* ===== COLLECTION ===== */
 .collection-title{
-  display:inline-block;
-  padding:14px 40px;
-  border-radius:40px;
-  background:linear-gradient(90deg,var(--deep),var(--dark));
-  color:#fff;
-  font-size:28px;
-  margin-bottom:55px;
-  border:2px solid var(--gold);
-  transition:.35s;
-}
-.collection-title:hover{
-  background:linear-gradient(135deg,var(--gold),#b8962e);
-  color:#2b1b00;
-  box-shadow:0 0 22px rgba(212,175,55,.7);
+ display:inline-block;
+ padding:14px 40px;
+ border-radius:40px;
+ background:linear-gradient(90deg,var(--deep),var(--dark));
+ color:#fff;
+ font-size:28px;
+ margin-bottom:55px;
+ border:2px solid var(--gold);
 }
 
-/* ===== PRODUCTS ===== */
 .products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:35px;
-  max-width:1300px;
-  margin:auto;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ gap:35px;
+ max-width:1300px;
+ margin:auto;
 }
 
-/* ===== CARD ===== */
 .card{
-  background:#fff;
-  border-radius:22px;
-  overflow:hidden;
-  border:2px solid var(--gold);
-  box-shadow:0 15px 35px rgba(0,0,0,.18);
-  transition:.4s;
+ background:#fff;
+ border-radius:22px;
+ overflow:hidden;
+ border:2px solid var(--gold);
+ box-shadow:0 15px 35px rgba(0,0,0,.18);
+ transition:.45s;
 }
+
 .card:hover{
-  transform:translateY(-12px);
-  box-shadow:
-    0 0 28px rgba(212,175,55,.6),
-    0 28px 45px rgba(0,0,0,.35);
+ transform:translateY(-14px) scale(1.04);
+ box-shadow:0 0 30px rgba(212,175,55,.8);
 }
 
 .card img{
-  width:100%;
-  height:260px;
-  object-fit:contain;
+ width:100%;
+ height:260px;
+ object-fit:contain;
+ transition:.6s;
 }
 
-.card h3{
-  margin:16px 0 12px;
-  color:var(--deep);
+.card:hover img{
+ transform:scale(1.08);
 }
 
 /* ===== BUTTONS ===== */
 .explore-btn{
-  display:inline-block;
-  padding:12px 32px;
-  border-radius:30px;
-  background:linear-gradient(90deg,var(--deep),var(--dark));
-  color:#fff;
-  text-decoration:none;
-  transition:.35s;
-}
-.explore-btn:hover{
-  background:linear-gradient(135deg,var(--gold),#b8962e);
-  color:#2b1b00;
-  transform:translateY(-3px);
-  box-shadow:0 0 18px rgba(212,175,55,.7);
+ display:inline-block;
+ margin-bottom:20px;
+ padding:12px 32px;
+ border-radius:30px;
+ background:linear-gradient(90deg,var(--deep),var(--dark));
+ color:#fff;
+ text-decoration:none;
+ transition:.4s ease;
+ position:relative;
+ overflow:hidden;
 }
 
-/* ===== ABOUT ===== */
-.about{
-  background:linear-gradient(180deg,#ffe3ee,#fff);
-  border-top:4px solid var(--gold);
+.explore-btn:hover{
+ background:linear-gradient(135deg,var(--gold),#b8962e);
+ color:#2b1b00;
+ box-shadow:0 0 22px rgba(212,175,55,.9);
+ transform:translateY(-3px) scale(1.05);
 }
-.about p{
-  max-width:900px;
-  margin:auto;
-  font-size:17px;
-  line-height:1.9;
+
+.explore-btn::after{
+ content:"";
+ position:absolute;
+ top:0;
+ left:-100%;
+ width:100%;
+ height:100%;
+ background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
+ transition:.6s;
 }
+
+.explore-btn:hover::after{left:100%}
 
 /* ===== FOOTER ===== */
 footer{
-  background:var(--dark);
-  color:#fff;
-  text-align:center;
-  padding:22px;
+ background:var(--dark);
+ color:#fff;
+ text-align:center;
+ padding:22px;
 }
-footer a{
-  color:var(--gold);
-  text-decoration:none;
-  margin-left:8px;
-}
-footer a:hover{text-decoration:underline}
 
 /* ===== WHATSAPP ===== */
 .whatsapp{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:#fff;
-  padding:14px 22px;
-  border-radius:40px;
-  text-decoration:none;
-  transition:.3s;
+ position:fixed;
+ right:20px;
+ bottom:20px;
+ background:linear-gradient(135deg,#25D366,#128C7E);
+ color:#fff;
+ padding:14px 22px;
+ border-radius:40px;
+ text-decoration:none;
+ transition:.4s ease;
 }
-.whatsapp:hover{transform:translateY(-5px)}
-.whatsapp i{margin-right:8px}
+
+.whatsapp:hover{
+ transform:scale(1.1) translateY(-3px);
+ box-shadow:0 0 25px rgba(37,211,102,.9);
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="brand">
-    <img src="Pooshaz/logo.png" alt="Pooshaz Luxury Hand Embroidery Logo">
-    <strong style="color:gold;">Pooshaz</strong>
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-<a href="terms.html">Policies</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+ <div class="brand">
+  <img src="Pooshaz/logo.png">
+  <strong style="color:gold;">Pooshaz</strong>
+ </div>
+
+ <div class="hamburger" onclick="toggleMenu()">
+  <i class="fas fa-bars"></i>
+ </div>
+
+ <nav id="menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="terms.html">Policies</a>
+  <a href="contact.html">Contact</a>
+  <a href="cart.html">Cart</a>
+  <span class="cart-icon">
+   <i class="fas fa-shopping-cart"></i>
+   <span id="cartCount" class="cart-count">0</span>
+  </span>
+ </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-box">
-    <h1>Elegance You Can Feel</h1>
-    <p>Luxury Hand-Embroidered Pakistani Wear</p>
-    <div class="center-text">Crafted with Heritage, Designed for Royalty</div>
-
-    <!-- 🔎 SEO hidden text -->
-    <p class="seo-hidden">
-      Luxury hand embroidered dresses in Pakistan by Pooshaz
-    </p>
-  </div>
+ <div class="hero-box">
+  <h1>Elegance You Can Feel</h1>
+  <p>Luxury Hand-Embroidered Pakistani Wear</p>
+  <div class="center-text">Crafted with Heritage, Designed for Royalty</div>
+ </div>
 </section>
 
-<section id="collections" class="section">
-<div class="collection-title">Our Collections</div>
+<section class="section">
+ <div class="collection-title">Our Luxury Collections</div>
 
-<div class="products">
+ <div class="products">
   <div class="card">
-    <img src="Pooshaz/summer_collection.jpg" alt="Pooshaz Summer Hand Embroidered Dresses">
-    <h3>Summer Collection</h3>
-    <a href="Summar/index.html" class="explore-btn">View Collection</a>
+   <img src="Pooshaz/summer_collection.jpg">
+   <h3>Summer Collection</h3>
+   <a href="Summer/index.html" class="explore-btn">Explore Summer</a>
   </div>
 
   <div class="card">
-    <img src="Pooshaz/winter_collection.jpg" alt="Pooshaz Winter Luxury Embroidery Dresses">
-    <h3>Winter Collection</h3>
-    <a href="Winter/index.html" class="explore-btn">View Collection</a>
+   <img src="Pooshaz/winter_collection.jpg">
+   <h3>Winter Collection</h3>
+   <a href="Winter/index.html" class="explore-btn">Explore Winter</a>
   </div>
 
   <div class="card">
-    <img src="Pooshaz/mid_winter_collection.jpg" alt="Pooshaz Mid Winter Embroidered Dresses">
-    <h3>Mid-Winter Collection</h3>
-    <a href="Mid-Winter/index.html" class="explore-btn">View Collection</a>
+   <img src="Pooshaz/mid_winter_collection.jpg">
+   <h3>Mid-Winter Collection</h3>
+   <a href="Mid-Winter/index.html" class="explore-btn">View Collection</a>
   </div>
 
   <div class="card">
-    <img src="Pooshaz/eid32.png" alt="Pooshaz Luxury Eid Hand Embroidered Dress">
-    <h3>Eid Collection</h3>
-    <a href="Eid/index.html" class="explore-btn">Explore Eid</a>
+   <img src="Pooshaz/eid32.png">
+   <h3>Eid Collection</h3>
+   <a href="Eid/index.html" class="explore-btn">Explore Eid</a>
   </div>
-</div>
+ </div>
 </section>
 
-<section id="about" class="section about">
-<h2>About Pooshaz</h2>
-<p>
-Pooshaz is a luxury Pakistani fashion brand specializing in premium hand embroidery.
-Each piece is handcrafted with care, inspired by rich cultural heritage and modern elegance.
-We offer Eid, Winter, Mid-Winter and Summer collections available across Pakistan.
-</p>
-</section>
-
-<footer id="contact">
-© 2026 Pooshaz — Luxury Hand Embroidery in Pakistan |
-<a href="terms.html">Policies</a>
+<footer>
+© 2026 Pooshaz — Luxury Hand Embroidery in Pakistan
 </footer>
 
 <a class="whatsapp" href="https://wa.me/923065354885" target="_blank">
-  <i class="fab fa-whatsapp"></i> Order on WhatsApp
+ <i class="fab fa-whatsapp"></i> Order on WhatsApp
 </a>
+
+<script>
+function toggleMenu(){
+ document.getElementById("menu").classList.toggle("active");
+}
+
+function updateCartCount(){
+ let cart = JSON.parse(localStorage.getItem("cart")) || [];
+ document.getElementById("cartCount").innerText = cart.length;
+}
+updateCartCount();
+</script>
 
 </body>
 </html>
